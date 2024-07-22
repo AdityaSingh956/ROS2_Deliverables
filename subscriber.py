@@ -6,12 +6,7 @@ from std_msgs.msg import String
 class HelloWorldSubscriber(Node):
     def __init__(self):
         super().__init__('hello_world_sub_node')
-        self.sub = self.create_subscription(
-            String,
-            'hello_world',
-            self.subscriber_callback,
-            10
-        )
+        self.sub = self.create_subscription(String,'hello_world',self.subscriber_callback,10)
 
     def subscriber_callback(self, msg):
         print('Received: ' + msg.data)
